@@ -505,11 +505,14 @@
     <references title="Informative References">
 
       &RFC1323;
+      &RFC3819;
       &RFC6824;
+      &RFC7413;
       &RFC7540;
       &I-D.ietf-sfc-nsh;
       &I-D.ietf-tls-tls13;
       &I-D.ietf-quic-transport;
+      &I-D.boucadair-mptcp-plain-mode;
       &I-D.dunbar-e2e-latency-arch-view-and-gaps;
       &I-D.nrooney-marnew-report;
 
