@@ -3,6 +3,7 @@
 
 <!ENTITY RFC1323 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1323.xml">
 <!ENTITY RFC3819 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3819.xml">
+<!ENTITY RFC6555 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6555.xml">
 <!ENTITY RFC6824 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6824.xml">
 <!ENTITY RFC7413 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7413.xml">
 <!ENTITY RFC7540 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7540.xml">
@@ -238,7 +239,7 @@
       <xref target="RFC7540"/> to
       software controlled, virtualised and tailored network functions
       <xref target="NFV2012"/> <xref target="I-D.ietf-sfc-nsh"/> <xref
-      target="OF2008"/>. Data- and software-driven network managment
+      target="OF2008"/>. Data- and software-driven network management
       and orchestration tools enable networks to be built to serve
       particular needs.</t>
 
@@ -262,8 +263,8 @@
       the radio interfaces. The requirements specify a one-way latency
       limit of 0.5ms for ultra-reliable low-latency communications
       <xref target="TS38913"/>. But again, mere latency numbers mean
-      very little without the context of what an application needs
-      to communicate and with whom.</t>
+      very little without the context of a system and what an
+      application needs to communicate and with whom.</t>
 
     </section>
 
@@ -380,7 +381,7 @@
 	that are on a global scale nearby, e.g., in the same country
 	or even at the ISP's datacenter.</t>
 	
-	<t>Today's CDNs are of course just one fom of distributed
+	<t>Today's CDNs are of course just one form of distributed
 	service implementation. Previous generations, such as web
 	caching, have existed as well, and it is likely that the
 	current arrangements will evolve in the future. CDN evolution
@@ -396,7 +397,7 @@
 	<section title="Edge Computing">
 			
         <t>Recent efforts in "edge computing" takes the CDN type
-	service placement even futher by providing services near
+	service placement even further by providing services near
 	the users. This would enable more extreme uses cases
 	where latency
 	from, say, ISP datacenter to the users is considered
@@ -492,7 +493,7 @@
 	</list></t>
 
 	<t>While the connection setup is an obvious example, cross-layer
-	optimisaetions are not limited to them. Interfaces between
+	optimisations are not limited to them. Interfaces between
 	application, transport, networking, and link layers can
 	provide information and set parameters that improve
 	latency. For instance, setting DSCP values or requesting
@@ -551,6 +552,14 @@
 	latency issues. Efforts to address specific sub-issues are
 	unlikely to be fruitful without a holistic plan.</t>
 
+        <t>In the authors' opinion, the most extreme use cases (e.g.,
+        1ms or smaller latencies) are not worth building
+        general-purpose networks for. But having the necessary tools
+        so that networks can be flexible for the more general cases is
+        very useful, as there are many applications that can benefit
+        from the added flexibility. The key tools for this include
+        ability to manage network function placement and topology.</t>
+
       </section>
 
     </section>
@@ -560,7 +569,7 @@
       <t>The author would like to thank Brian Trammell, Mirja
       Kuehlewind, Linda Dunbar, Goran Rune, Ari Keranen, Jeff
       Tantsura, James Kempf, Stephen Farrell,
-      Mohamed Boucadair, Kumar Balachandran, Göran AP Eriksson,
+      Mohamed Boucadair, Kumar Balachandran, Goran AP Eriksson,
       and many
       others for interesting
       discussions in this problem space.</t>
@@ -580,6 +589,7 @@
 
       &RFC1323;
       &RFC3819;
+      &RFC6555;
       &RFC6824;
       &RFC7413;
       &RFC7540;
