@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
+<!ENTITY RFC1323 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1323.xml">
+<!ENTITY RFC3819 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3819.xml">
 <!ENTITY RFC6824 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6824.xml">
+<!ENTITY RFC7413 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7413.xml">
 <!ENTITY RFC7540 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7540.xml">
+<!ENTITY I-D.boucadair-mptcp-plain-mode SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.boucadair-mptcp-plain-mode.xml">
 <!ENTITY I-D.dunbar-e2e-latency-arch-view-and-gaps SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.dunbar-e2e-latency-arch-view-and-gaps.xml">
 <!ENTITY I-D.ietf-sfc-nsh SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-sfc-nsh.xml">
 <!ENTITY I-D.ietf-tls-tls13 SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-tls-tls13.xml">
@@ -91,7 +95,7 @@
       potentially in a more significant role than it has traditionally
       been in Internet communications.</t>
 
-      <t>New applications or technologies does not necessarily imply
+      <t>New applications or technologies do not necessarily imply
       that latency should be the main driving concern, or that any
       further efforts beyond those already ongoing are needed. Indeed,
       modern networking systems offer many tools for building
@@ -99,7 +103,8 @@
       instance, there has been a recent increase in work related to
       transport, security, and web application protocols, in part to
       make significant improvements in latency and connection set-up
-      times. Similar efforts in other parts of the stack exist in
+      times. Similar efforts for other components of communications
+      technology exist in
       3GPP, IEEE, and other standards organisations.</t>
 
       <t>Despite a large number of specific developments, it may be
@@ -120,7 +125,9 @@
     <section anchor="applications" title="Applications with Special Focus on Low Latency">
 
       <t>Most Internet applications enjoy significant benefits from
-      low-latency communications.</t>
+      low-latency communications in the form of faster response times
+      and higher bandwidth communications enabled by transport protocol
+      behaviour <xref target="RFC1323"/>.</t>
 
       <t>There are also potential applications where latency is
       potentially in an even more significant role. For instance,
@@ -148,6 +155,16 @@
       global services without incurring unreasonable
       delays.</t>
 
+      <t>For these reasons it is difficult to specify what "low latency"
+      means in terms of specific delays. Applications and network
+      scenarios differ. Reaching a 50ms latency may be enough for
+      some applications while others may require 50us. Obviously,
+      latency is ultimately limited by physics, location,
+      and topology. Individual link characteristics are important,
+      but system level communication needs both in terms of
+      what is being communicated and between what parties matter
+      more.</t>
+	      
       <t>Note that when we say "low-latency capabilities", there is no
       intent to imply any specific implementation of those
       capabilities.  In particular, we look at the low-latency
@@ -207,7 +224,8 @@
       low-latency networks, across the stack. from highly optimised
       individual protocol components <xref
       target="I-D.ietf-tls-tls13"/> <xref
-      target="I-D.ietf-quic-transport"/> <xref target="RFC7540"/> to
+      target="I-D.ietf-quic-transport"/> <xref target="RFC7413"/>
+      <xref target="RFC7540"/> to
       software controlled, virtualised and tailored network functions
       <xref target="NFV2012"/> <xref target="I-D.ietf-sfc-nsh"/> <xref
       target="OF2008"/>. Data- and software-driven network managment
@@ -233,7 +251,9 @@
       technology are stringent, and are leading to the optimization of
       the radio interfaces. The requirements specify a one-way latency
       limit of 0.5ms for ultra-reliable low-latency communications
-      <xref target="TS38913"/>.</t>
+      <xref target="TS38913"/>. But again, mere latency numbers mean
+      very little without the context of what an application needs
+      to communicate and with whom.</t>
 
     </section>
 
@@ -339,7 +359,9 @@
 	single server might otherwise suffice for the service.</t>
 
         <t>Content-Delivery Networks (CDNs) and similar arrangements
-        are likely to flourish because of this.  In the most extreme
+        are likely to flourish because of this.  These arrangements
+	can bring content close to end-users, and have a significant
+	impact on latency. In the most extreme
         cases, edge computing services are needed.</t>
 	
 	<t>How the communications are routed also matters.  For
@@ -352,7 +374,16 @@
 
 	<t>Recent developments in multipath transport protocols <xref
 	target="RFC6824"/> also provide application- and service-level
-	control of some of the networking behaviour. There is tension
+	control of some of the networking behaviour. Similar choices
+	among alternative paths also exist in simpler techniques,
+	ranging from server selection algorithms to IPv6 "Happy Eyeballs"
+	algorithms <xref target="RFC6555"/>. In all of these cases
+	an application makes some observations of the environment
+	and decides to use the an alternative path or target that
+	is perceived to be best suited for the applications's needs.</t>
+		
+	<t>In all of these multipath and alternative selection
+	techniques there is tension
 	between application control (often by content providers)
 	and network control (often by network operators).</t>
 
@@ -372,6 +403,10 @@
 	and most of the deployment difficulties reported in <xref
 	target="CC2015"/> relate to end-to-end mechanisms.</t>
 
+	<t>Note that some of the multipath techniques can be used
+	either by endpoints or by the network. Proxy-based Multipath TCP
+	is one example of this <xref target="I-D.boucadair-mptcp-plain-mode"/>.</t>
+	      
 	<t>Finally, in the search for even faster connection setup
 	times one obvious technique is cross-layer optimisation.  We
 	have seen some of this in the IETF in the rethinking of the
@@ -400,6 +435,13 @@
 	evolve is probably even more important than their specific
 	characteristics.</t>
 
+	<t>These comments about cross-layer optimisation should
+	not be interpreted to mean that protocol design should not
+	take into account how other layers behave. The IETF has
+	a long tradition of discussing link layer design implications
+	for Internet communications (see, e.g., the results of the
+	PILC working group <xref target="RFC3819"/>.</t>
+		
     </section>
 
       <section title="Recommendations for Further Work">
@@ -445,7 +487,8 @@
 
       <t>The author would like to thank Brian Trammell, Mirja
       Kuehlewind, Linda Dunbar, Goran Rune, Ari Keranen, Jeff
-      Tantsura, Stephen Farrell, and many others for interesting
+      Tantsura, Stephen Farrell, Mohamed Boucadair and many
+      others for interesting
       discussions in this problem space.</t>
 
       <t>The author would also like to acknowledge the important
@@ -461,6 +504,7 @@
 
     <references title="Informative References">
 
+      &RFC1323;
       &RFC6824;
       &RFC7540;
       &I-D.ietf-sfc-nsh;
