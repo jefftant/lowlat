@@ -164,7 +164,7 @@
       but system level communication needs both in terms of
       what is being communicated and between what parties matter
       more.</t>
-	      
+	    
       <t>Note that when we say "low-latency capabilities", there is no
       intent to imply any specific implementation of those
       capabilities.  In particular, we look at the low-latency
@@ -188,7 +188,14 @@
 
       <t>There are some limited applications that rely solely on local
       communication. One example of such an application is vehicles
-      communicating braking status to nearby ones. However, many
+      communicating braking status to nearby ones.</t>
+	    
+      <t>Also, while many applications run in the global Internet,
+      some are designed for specialised networks that may not have
+      have full or even any Internet connectivity, but yet use
+      IP technology.</t>
+		    
+      <t>However, many
       applications will include also wide-area communication. If the
       factory automation machines are not talking other than with
       themselves, at least their control systems are doing so in order
@@ -204,7 +211,10 @@
       <t>As a result, this document recommends that when building
       architectures for low-latency applications it is important to
       take into account that these applications can also benefit from
-      communications elsewhere.</t>
+      communications elsewhere. Or at the very least, the existence
+      of a specialised communications link or network should not be
+      immediately taken to mean that no other communications
+      are needed.</t>
       
     </section>
     
