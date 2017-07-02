@@ -491,7 +491,7 @@
 
 	</list></t>
 
-	<>While the connection setup is an obvious example, cross-layer
+	<t>While the connection setup is an obvious example, cross-layer
 	optimisaetions are not limited to them. Interfaces between
 	application, transport, networking, and link layers can
 	provide information and set parameters that improve
