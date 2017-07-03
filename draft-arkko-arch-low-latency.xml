@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 
-<!ENTITY RFC1323 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.1323.xml">
+<!ENTITY RFC7323 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7323.xml">
 <!ENTITY RFC3819 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3819.xml">
 <!ENTITY RFC6555 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6555.xml">
 <!ENTITY RFC6824 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6824.xml">
 <!ENTITY RFC7413 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7413.xml">
 <!ENTITY RFC7540 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7540.xml">
+<!ENTITY RFC7665 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7665.xml">
 <!ENTITY I-D.boucadair-mptcp-plain-mode SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.boucadair-mptcp-plain-mode.xml">
 <!ENTITY I-D.dunbar-e2e-latency-arch-view-and-gaps SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.dunbar-e2e-latency-arch-view-and-gaps.xml">
 <!ENTITY I-D.ietf-sfc-nsh SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.ietf-sfc-nsh.xml">
@@ -128,7 +129,7 @@
       <t>Most Internet applications enjoy significant benefits from
       low-latency communications in the form of faster setup and response times
       as well as higher bandwidth communications enabled by transport protocol
-      behaviour <xref target="RFC1323"/>.</t>
+      behaviour <xref target="RFC7323"/>.</t>
 
       <t>There are also potential applications where latency would play
       an even more significant role. For instance,
@@ -195,7 +196,7 @@
 	    
       <t>Also, while many applications run in the global Internet,
       some are designed for specialised networks that may not have
-      have full or even any Internet connectivity, but yet use
+      full or even any Internet connectivity, but yet use
       IP technology.</t>
 		    
       <t>However, many
@@ -240,7 +241,7 @@
       target="I-D.ietf-quic-transport"/> <xref target="RFC7413"/>
       <xref target="RFC7540"/> to
       software controlled, virtualised and tailored network functions
-      <xref target="NFV2012"/> <xref target="I-D.ietf-sfc-nsh"/> <xref
+      <xref target="NFV2012"/> <xref target="RFC7665"/> <xref target="I-D.ietf-sfc-nsh"/> <xref
       target="OF2008"/>. Data- and software-driven network management
       and orchestration tools enable networks to be built to serve
       particular needs as well as to optimize workload	
@@ -598,7 +599,7 @@
 
     <references title="Informative References">
 
-      &RFC1323;
+      &RFC7323;
       &RFC3819;
       &RFC6555;
       &RFC6824;
