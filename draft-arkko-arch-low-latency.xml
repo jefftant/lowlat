@@ -98,7 +98,7 @@
 
       <t>New applications or technologies do not necessarily imply
       that latency should be the main driving concern, or that any
-      further efforts are needed beyond those already ongoing. Indeed,
+      further efforts are needed, beyond those already ongoing. Indeed,
       modern networking systems offer many tools for building
       low-latency networks, across the stack. At the IETF, for
       instance, there has been a recent increase in work related to
