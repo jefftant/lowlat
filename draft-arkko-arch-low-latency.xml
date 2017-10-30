@@ -235,7 +235,7 @@
       mechanisms.</t>
       
       <t>Modern networking systems offer many tools for building
-      low-latency networks, across the stack. from highly optimised
+      low-latency networks, from highly optimised
       individual protocol components <xref
       target="I-D.ietf-tls-tls13"/> <xref
       target="I-D.ietf-quic-transport"/> <xref target="RFC7413"/>
@@ -246,9 +246,22 @@
       and orchestration tools enable networks to be built to serve
       particular needs as well as to optimize workload	
       placement in a way low-latency requirements could be met.</t>
-
+	    
+      <t>Obviously, low-latency communications are
+      not merely a matter of protocols and their optimisation.
+      Implementation techniques matter, from the placement of
+      network functions and nodes in the right places, to the
+      quality of individual function implementations. Today's
+      technology allows much freedom on placement of
+      (virtual) functions at chosen locations and many
+      options for all functions ranging from load balancing to
+      storage to packet processing to management tools. Good
+      design can provide significant gains by reducing latency
+      in and between network components, reducing the necessary
+      control traffic and state synchronization, and so on.</t>
+      	    
       <t>Across the stack there are also many other
-      tools, as well as tools being in development, e.g., a new
+      protocol tools, as well as tools being in development, e.g., a new
       transport design <xref target="L4S"/> at the IETF.</t>
 
       <t>On
@@ -472,6 +485,25 @@
 	      
 	</section>
 	    
+	      
+	<section title="Quality-of-Service">
+		<t>Existing approaches have not necessarily proven to
+		be technical deficient in any way, but it seems that it
+		is reasonable to draw some conclusions about the lack of feasibility
+		for deploying mechanisms that require a high degree of coordination
+		among multiple parties. Without significant changes in the
+		marketplace or other conditions, these types of solutions do not seem likely to get traction.</t>
+		<t>The other observation that may be worth noting is that many
+		networks have focused on providing highly tuned services for a relatively
+		small fractions of traffic. While this may be justifiable from the perspective
+		of special applications needing that support, this does not
+		seem to produce a good bang-for-the-buck ratio. There's relatively small
+		amount of work on mechanisms that would help a large fraction of applications.
+		For instance, in many access networks the over-the-top content is by far the
+		biggest source of traffic. Solutions that are business-wise deployable for
+		such traffic would seem preferrable.</t>
+        </section>
+	      
 	<section title="Cross-Layer Optimisations">
 		
 	<t>In the search for even faster connection setup
@@ -540,7 +572,9 @@
 
 	  <t>What are the issues with inter-domain Quality-of-Service
 	  mechanisms? Are there approaches that would offer progress
-	  on this field?</t>
+	  on this field? Work on Quality-of-Service mechanisms that are
+          deployable for common cases, and without excessive need for
+          technical and non-technical coordination across the ecosystem.</t>
 
 	  <t>Network architectures that employ tunneling, and
 	  mitigations against the delay impacts of tunnels (such as
@@ -581,7 +615,7 @@
 
       <t>The author would like to thank Brian Trammell, Mirja
       Kuehlewind, Linda Dunbar, Goran Rune, Ari Keranen, James Kempf, Stephen Farrell,
-      Mohamed Boucadair, Kumar Balachandran, Goran AP Eriksson,
+      Mohamed Boucadair, Kumar Balachandran, Jani-Pekka Kainulainen, Goran AP Eriksson,
       and many
       others for interesting
       discussions in this problem space.</t>
